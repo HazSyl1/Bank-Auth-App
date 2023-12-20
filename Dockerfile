@@ -1,6 +1,8 @@
 FROM  python:3.10
-COPY . /usr/app/
-EXPOSE 8000
-WORKDIR /usr/app/
-RUN pip install -r requirements.txt
-CMD streamlit run app.py
+WORKDIR /app
+COPY requirements.txt ./requirements.txt
+RUN pip install -r requirements.txt --progress-bar off
+EXPOSE 8501
+COPY . /app
+ENTRYPOINT ["streamlit", "run"]
+CMD ["app.py"]

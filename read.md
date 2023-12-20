@@ -1,0 +1,1 @@
+To run use "docker run --privileged -p local_port:8501 {name}"
